@@ -1,0 +1,255 @@
+﻿{
+  "type": "collection.insomnia.rest/5.0",
+  "schema_version": "5.1",
+  "name": "Scratch Pad",
+  "meta": {
+    "id": "wrk_scratchpad",
+    "created": 1773783520030,
+    "modified": 1773783520030,
+    "description": ""
+  },
+  "collection": [
+    {
+      "url": "http://localhost:8000/health",
+      "name": "/health",
+      "meta": {
+        "id": "req_26f962465a584bbaa38aa403044c9bf4",
+        "created": 1774404633436,
+        "modified": 1774404689180,
+        "isPrivate": false,
+        "description": "",
+        "sortKey": -1774404633436
+      },
+      "method": "GET",
+      "headers": [
+        {
+          "name": "User-Agent",
+          "value": "insomnia/12.4.0",
+          "description": "",
+          "disabled": false
+        }
+      ],
+      "settings": {
+        "renderRequestBody": true,
+        "encodeUrl": true,
+        "followRedirects": "global",
+        "cookies": {
+          "send": true,
+          "store": true
+        },
+        "rebuildPath": true
+      }
+    },
+    {
+      "url": "http://localhost:8000/dashboard/1",
+      "name": "Dashboard",
+      "meta": {
+        "id": "req_d8ccb5c922ad41f9829260af23254a72",
+        "created": 1774404695658,
+        "modified": 1774404951235,
+        "isPrivate": false,
+        "description": "",
+        "sortKey": -1774404695658
+      },
+      "method": "GET",
+      "headers": [
+        {
+          "name": "User-Agent",
+          "value": "insomnia/12.4.0",
+          "description": "",
+          "disabled": false
+        }
+      ],
+      "settings": {
+        "renderRequestBody": true,
+        "encodeUrl": true,
+        "followRedirects": "global",
+        "cookies": {
+          "send": true,
+          "store": true
+        },
+        "rebuildPath": true
+      }
+    },
+    {
+      "url": "http://localhost:8000/historico/1",
+      "name": "  Historico",
+      "meta": {
+        "id": "req_37fbadc56eac4b7a96001dc094767528",
+        "created": 1774404732201,
+        "modified": 1774404960518,
+        "isPrivate": false,
+        "description": "",
+        "sortKey": -1774404732201
+      },
+      "method": "GET",
+      "headers": [
+        {
+          "name": "User-Agent",
+          "value": "insomnia/12.4.0",
+          "description": "",
+          "disabled": false
+        }
+      ],
+      "settings": {
+        "renderRequestBody": true,
+        "encodeUrl": true,
+        "followRedirects": "global",
+        "cookies": {
+          "send": true,
+          "store": true
+        },
+        "rebuildPath": true
+      }
+    },
+    {
+      "url": "http://localhost:8000/login",
+      "name": "Login",
+      "meta": {
+        "id": "req_6e02e40234b24e78825d52f3f552311c",
+        "created": 1774404834417,
+        "modified": 1774405349398,
+        "isPrivate": false,
+        "description": "",
+        "sortKey": -1774404834417
+      },
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"usuario\": \"esparrell\",\n\t\"senha\": \"123456\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "User-Agent",
+          "value": "insomnia/12.4.0",
+          "description": "",
+          "disabled": false
+        }
+      ],
+      "settings": {
+        "renderRequestBody": true,
+        "encodeUrl": true,
+        "followRedirects": "global",
+        "cookies": {
+          "send": true,
+          "store": true
+        },
+        "rebuildPath": true
+      }
+    },
+    {
+      "url": "http://localhost:8000/cadastro",
+      "name": "Cadastro",
+      "meta": {
+        "id": "req_bac8807605be491192de2d3d3b48870c",
+        "created": 1774404853323,
+        "modified": 1774404981451,
+        "isPrivate": false,
+        "description": "",
+        "sortKey": -1774404853323
+      },
+      "method": "POST",
+      "headers": [
+        {
+          "name": "User-Agent",
+          "value": "insomnia/12.4.0",
+          "description": "",
+          "disabled": false
+        }
+      ],
+      "settings": {
+        "renderRequestBody": true,
+        "encodeUrl": true,
+        "followRedirects": "global",
+        "cookies": {
+          "send": true,
+          "store": true
+        },
+        "rebuildPath": true
+      }
+    },
+    {
+      "url": "http://localhost:8000/iniciar_jogo",
+      "name": "Iniciar Jogo",
+      "meta": {
+        "id": "req_f580d340b5cd4c0ca5ee9aef98129f5d",
+        "created": 1774404882760,
+        "modified": 1774405012341,
+        "isPrivate": false,
+        "description": "",
+        "sortKey": -1774404882760
+      },
+      "method": "POST",
+      "headers": [
+        {
+          "name": "User-Agent",
+          "value": "insomnia/12.4.0",
+          "description": "",
+          "disabled": false
+        }
+      ],
+      "settings": {
+        "renderRequestBody": true,
+        "encodeUrl": true,
+        "followRedirects": "global",
+        "cookies": {
+          "send": true,
+          "store": true
+        },
+        "rebuildPath": true
+      }
+    },
+    {
+      "url": "http://localhost:8000/jogo",
+      "name": "Jogo",
+      "meta": {
+        "id": "req_2282f47851624bf39688bd61f06a2507",
+        "created": 1774404907221,
+        "modified": 1774405020364,
+        "isPrivate": false,
+        "description": "",
+        "sortKey": -1774404907221
+      },
+      "method": "POST",
+      "headers": [
+        {
+          "name": "User-Agent",
+          "value": "insomnia/12.4.0",
+          "description": "",
+          "disabled": false
+        }
+      ],
+      "settings": {
+        "renderRequestBody": true,
+        "encodeUrl": true,
+        "followRedirects": "global",
+        "cookies": {
+          "send": true,
+          "store": true
+        },
+        "rebuildPath": true
+      }
+    }
+  ],
+  "cookieJar": {
+    "name": "Default Jar",
+    "meta": {
+      "id": "jar_99d30891da4bdcebc63947a8fc17f076de878684",
+      "created": 1773783568904,
+      "modified": 1773783568904
+    }
+  },
+  "environments": {
+    "name": "Base Environment",
+    "meta": {
+      "id": "env_99d30891da4bdcebc63947a8fc17f076de878684",
+      "created": 1773783568887,
+      "modified": 1773783568887,
+      "isPrivate": false
+    }
+  }
+}
