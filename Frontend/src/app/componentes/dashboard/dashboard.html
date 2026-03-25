@@ -1,0 +1,57 @@
+<h1>🎯 Dashboard Mastermind</h1>
+
+<div class="menu">
+  <button [routerLink]="['/jogo']">🎮 Jogar</button>
+  <button (click)="acessaHistorico()">📜 Histórico</button>
+  <button class="btn-logout" (click)="logout()">🚪 Sair</button>
+</div>
+
+<h2>🏆 Ranking - Top 10</h2>
+
+<div *ngIf="dashboard.pontuacao_total.length === 0" class="sem-dados">
+  <div class="spinner"></div>
+  <p>Carregando ranking...</p>
+</div>
+
+<div *ngIf="dashboard.pontuacao_total.length > 0; else semDados">
+  <table class="ranking-table">
+    <thead>
+      <tr>
+        <th>🏅 Posição</th>
+        <th>👤 Nome</th>
+        <th>⭐ Pontuação Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let jogador of dashboard.pontuacao_total; let i = index">
+        <td class="posicao">
+          <span [ngClass]="{'gold': i === 0, 'silver': i === 1, 'bronze': i === 2}">
+            {{i + 1}}º
+          </span>
+        </td>
+        <td>
+          <strong>{{jogador.nome || jogador.usuario}}</strong>
+          <span *ngIf="i === 0" class="crown">👑</span>
+        </td>
+        <td class="pontuacao">{{jogador.pontuacao_total | number}} pts</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #semDados>
+  <div class="sem-dados">
+    <p>⚠️ Nenhum dado encontrado</p>
+    <p>Jogue algumas partidas para aparecer no ranking!</p>
+  </div>
+</ng-template>
+
+<div class="grafico" *ngIf="dashboard.pontuacao_total.length > 0">
+  <h3>📊 Top 3 Pontuações</h3>
+  <canvas baseChart
+    [datasets]="dashboard.barChartData"
+    [labels]="dashboard.barChartLabels"
+    [options]="dashboard.barChartOptions"
+    [type]="'bar'">
+  </canvas>
+</div>

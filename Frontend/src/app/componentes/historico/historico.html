@@ -1,0 +1,85 @@
+<div class="historico-container">
+  <div class="historico-header">
+    <h1>📜 Histórico de Partidas</h1>
+    <div class="header-actions">
+      <button class="btn-refresh" (click)="BotaoCarregarHistorico()">
+        🔄 Atualizar
+      </button>
+      <button class="btn-back" (click)="voltar()">
+        ← Voltar ao Dashboard
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="historico.carregando" class="loading-container">
+    <div class="spinner"></div>
+    <p>Carregando histórico...</p>
+  </div>
+
+  <div *ngIf="!historico.carregando && historico.historico.length === 0" class="empty-state">
+    <div class="empty-icon">🎮</div>
+    <h3>Nenhuma partida encontrada</h3>
+    <p>Você ainda não jogou nenhuma partida. Que tal começar agora?</p>
+    <button class="btn-play" [routerLink]="['/jogo']">Jogar Agora</button>
+  </div>
+
+  <div *ngIf="!historico.carregando && historico.historico.length > 0" class="table-container">
+    <table class="historico-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>⭐ Pontuação</th>
+          <th>🎯 Tentativas</th>
+          <th>⏱️ Tempo</th>
+          <th>📅 Data</th>
+          <th>🔍 Detalhes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let jogo of historico.historico; let i = index">
+          <tr class="historico-row" [class.expanded]="historico.expandido === i">
+            <td class="col-number">{{i + 1}}</td>
+            <td class="col-pontuacao">
+              <span class="pontuacao-badge">{{jogo.pontuacao}} pts</span>
+            </td>
+            <td class="col-tentativas">{{jogo.tentativas}}</td>
+            <td class="col-tempo">
+              <span class="tempo-badge">{{historico.formatarTempo(jogo.tempo)}}</span>
+            </td>
+            <td class="col-data">{{historico.formatarData(jogo.data)}}</td>
+            <td class="col-acao">
+              <button class="btn-expand" (click)="toggleExpand(i)">
+                {{historico.expandido === i ? '▲ Esconder' : '▼ Ver Tentativas'}}
+              </button>
+            </td>
+          </tr>
+          
+          <tr *ngIf="historico.expandido === i" class="linha-expandida">
+            <td colspan="6">
+              <div class="expand-content">
+                <h4>🎨 Tentativas Realizadas</h4>
+                <div class="tentativas-container">
+                  <div *ngFor="let tentativa of parseEstado(jogo.estado_completo)" class="tentativa-item">
+                    <div class="tentativa-header">
+                      <span class="tentativa-label">Tentativa</span>
+                    </div>
+                    <div class="tentativa-cores">
+                      <div *ngFor="let cor of tentativa" 
+                           class="cor-preview"
+                           [ngClass]="'cor-' + cor.toLowerCase()">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="resposta-container">
+                  <span class="resposta-label">🔑 Resposta Correta:</span>
+                  <span class="resposta-valor">{{ jogo.resposta_correta }}</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>
